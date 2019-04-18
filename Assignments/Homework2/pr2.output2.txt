@@ -1,0 +1,219 @@
+    optimizer_conv = optim.SGD(model_conv.fc.parameters(), lr=0.001, momentum=0.95)
+
+Epython_virtual_environmentdeep_learning_frameScriptspython.exe EiCloudDriveDesktopSyncUmichEECS 598_498 Deep LearningAssignmentsHomework2codetransfer_learning.py
+Finetune the pre-trained model
+Performance of pre-trained model without finetuning
+Training complete in 0m 14s
+Best val Acc 0.516340
+Finetune the model
+Epoch 024
+----------
+train Loss 0.6651 Acc 0.6885
+val Loss 0.3923 Acc 0.8562
+Epoch 124
+----------
+train Loss 0.7834 Acc 0.7090
+val Loss 2.2262 Acc 0.6601
+Epoch 224
+----------
+train Loss 0.9935 Acc 0.6639
+val Loss 1.0044 Acc 0.6797
+Epoch 324
+----------
+train Loss 1.0167 Acc 0.6311
+val Loss 1.7928 Acc 0.5229
+Epoch 424
+----------
+train Loss 1.0009 Acc 0.6926
+val Loss 0.6991 Acc 0.8235
+Epoch 524
+----------
+train Loss 1.0618 Acc 0.5902
+val Loss 0.4610 Acc 0.7974
+Epoch 624
+----------
+train Loss 0.5829 Acc 0.7295
+val Loss 0.4061 Acc 0.8170
+Epoch 724
+----------
+train Loss 0.4234 Acc 0.7992
+val Loss 0.3434 Acc 0.8497
+Epoch 824
+----------
+train Loss 0.4429 Acc 0.7992
+val Loss 0.3322 Acc 0.8627
+Epoch 924
+----------
+train Loss 0.3870 Acc 0.8279
+val Loss 0.3350 Acc 0.8693
+Epoch 1024
+----------
+train Loss 0.3459 Acc 0.8361
+val Loss 0.3009 Acc 0.8954
+Epoch 1124
+----------
+train Loss 0.3556 Acc 0.8402
+val Loss 0.3373 Acc 0.8497
+Epoch 1224
+----------
+train Loss 0.3981 Acc 0.8320
+val Loss 0.2963 Acc 0.9085
+Epoch 1324
+----------
+train Loss 0.3489 Acc 0.8566
+val Loss 0.3529 Acc 0.8497
+Epoch 1424
+----------
+train Loss 0.3177 Acc 0.8402
+val Loss 0.2966 Acc 0.8889
+Epoch 1524
+----------
+train Loss 0.3631 Acc 0.8238
+val Loss 0.2983 Acc 0.8758
+Epoch 1624
+----------
+train Loss 0.2638 Acc 0.8689
+val Loss 0.2951 Acc 0.8824
+Epoch 1724
+----------
+train Loss 0.3288 Acc 0.8689
+val Loss 0.3101 Acc 0.8954
+Epoch 1824
+----------
+train Loss 0.3493 Acc 0.8279
+val Loss 0.2858 Acc 0.8889
+Epoch 1924
+----------
+train Loss 0.3277 Acc 0.8730
+val Loss 0.2928 Acc 0.8889
+Epoch 2024
+----------
+train Loss 0.3494 Acc 0.8607
+val Loss 0.3268 Acc 0.8824
+Epoch 2124
+----------
+train Loss 0.3996 Acc 0.8115
+val Loss 0.2912 Acc 0.8889
+Epoch 2224
+----------
+train Loss 0.3732 Acc 0.8279
+val Loss 0.2998 Acc 0.8889
+Epoch 2324
+----------
+train Loss 0.3100 Acc 0.8607
+val Loss 0.2916 Acc 0.8954
+Epoch 2424
+----------
+train Loss 0.3397 Acc 0.8279
+val Loss 0.2935 Acc 0.8824
+Training complete in 26m 35s
+Best val Acc 0.908497
+Freeze the parameters in pre-trained model and train the final fc layer
+Performance of pre-trained model without finetuning
+Training complete in 0m 14s
+Best val Acc 0.496732
+Finetune the model
+Epoch 024
+----------
+train Loss 0.6410 Acc 0.6639
+val Loss 0.2376 Acc 0.9150
+Epoch 124
+----------
+train Loss 0.4677 Acc 0.7459
+val Loss 0.1857 Acc 0.9477
+Epoch 224
+----------
+train Loss 1.3431 Acc 0.6762
+val Loss 0.3678 Acc 0.8889
+Epoch 324
+----------
+train Loss 1.1009 Acc 0.7336
+val Loss 0.4331 Acc 0.8693
+Epoch 424
+----------
+train Loss 0.7355 Acc 0.7828
+val Loss 0.2586 Acc 0.9085
+Epoch 524
+----------
+train Loss 0.4458 Acc 0.8402
+val Loss 0.3235 Acc 0.8954
+Epoch 624
+----------
+train Loss 0.8886 Acc 0.7172
+val Loss 0.2835 Acc 0.9477
+Epoch 724
+----------
+train Loss 0.4443 Acc 0.8279
+val Loss 0.2907 Acc 0.9542
+Epoch 824
+----------
+train Loss 0.3937 Acc 0.8689
+val Loss 0.2903 Acc 0.9412
+Epoch 924
+----------
+train Loss 0.4738 Acc 0.8197
+val Loss 0.2847 Acc 0.9542
+Epoch 1024
+----------
+train Loss 0.4290 Acc 0.8525
+val Loss 0.3680 Acc 0.8824
+Epoch 1124
+----------
+train Loss 0.3514 Acc 0.8770
+val Loss 0.2896 Acc 0.9412
+Epoch 1224
+----------
+train Loss 0.4529 Acc 0.8074
+val Loss 0.2605 Acc 0.9477
+Epoch 1324
+----------
+train Loss 0.4506 Acc 0.8320
+val Loss 0.2599 Acc 0.9477
+Epoch 1424
+----------
+train Loss 0.4003 Acc 0.8361
+val Loss 0.2626 Acc 0.9477
+Epoch 1524
+----------
+train Loss 0.3417 Acc 0.8811
+val Loss 0.2475 Acc 0.9477
+Epoch 1624
+----------
+train Loss 0.4828 Acc 0.8361
+val Loss 0.2492 Acc 0.9477
+Epoch 1724
+----------
+train Loss 0.3745 Acc 0.8279
+val Loss 0.2580 Acc 0.9477
+Epoch 1824
+----------
+train Loss 0.3968 Acc 0.8443
+val Loss 0.2569 Acc 0.9477
+Epoch 1924
+----------
+train Loss 0.4354 Acc 0.8197
+val Loss 0.2592 Acc 0.9477
+Epoch 2024
+----------
+train Loss 0.4628 Acc 0.8279
+val Loss 0.2798 Acc 0.9412
+Epoch 2124
+----------
+train Loss 0.3418 Acc 0.8730
+val Loss 0.2403 Acc 0.9477
+Epoch 2224
+----------
+train Loss 0.3520 Acc 0.8648
+val Loss 0.2465 Acc 0.9477
+Epoch 2324
+----------
+train Loss 0.3542 Acc 0.8566
+val Loss 0.2320 Acc 0.9477
+Epoch 2424
+----------
+train Loss 0.2295 Acc 0.9057
+val Loss 0.2564 Acc 0.9477
+Training complete in 14m 52s
+Best val Acc 0.954248
+
+Process finished with exit code 0

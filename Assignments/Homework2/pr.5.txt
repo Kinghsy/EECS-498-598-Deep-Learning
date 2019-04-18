@@ -1,0 +1,23 @@
+/Users/shuyangh/venv/deep_learning/bin/python "/Users/shuyangh/Desktop/Sync/Umich/EECS 598:498 Deep Learning/Assignments/Homework2/code/image_captioning.py"
+(Iteration 1 / 100) loss: 79.377895
+(Iteration 11 / 100) loss: 28.798746
+(Iteration 21 / 100) loss: 6.190640
+(Iteration 31 / 100) loss: 1.823600
+(Iteration 41 / 100) loss: 0.609248
+(Iteration 51 / 100) loss: 0.231603
+(Iteration 61 / 100) loss: 0.175013
+(Iteration 71 / 100) loss: 0.144559
+(Iteration 81 / 100) loss: 0.130450
+(Iteration 91 / 100) loss: 0.123237
+(Iteration 1 / 100) loss: 77.190815
+(Iteration 11 / 100) loss: 39.025666
+(Iteration 21 / 100) loss: 22.946306
+(Iteration 31 / 100) loss: 13.566129
+(Iteration 41 / 100) loss: 4.800398
+(Iteration 51 / 100) loss: 2.232870
+(Iteration 61 / 100) loss: 0.984483
+(Iteration 71 / 100) loss: 0.450781
+(Iteration 81 / 100) loss: 0.174051
+(Iteration 91 / 100) loss: 0.139931
+
+Process finished with exit code 0
