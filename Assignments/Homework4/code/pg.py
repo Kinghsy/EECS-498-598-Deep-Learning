@@ -21,6 +21,10 @@ class PolicyNet(nn.Module):
         ### homework writeup                               ###
         ######################################################
 
+        self.fc1 = nn.Linear(4, 24)
+        self.fc2 = nn.Linear(24, 36)
+        self.fc3 = nn.Linear(36, 1)
+
         ######################################################
         ###               END OF YOUR CODE                 ###
         ######################################################
@@ -32,6 +36,11 @@ class PolicyNet(nn.Module):
         ######################################################
         ### Forward through the network                    ###
         ######################################################
+
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = F.sigmoid(self.fc3(x))
+        return x
 
         ######################################################
         ###               END OF YOUR CODE                 ###
@@ -70,6 +79,10 @@ def simulate(env, policy_net, steps, state_pool, action_pool, reward_pool,
         ### Use policy_net to sample actions given the       #
         ### current state                                    #
         ######################################################
+
+        probs = policy_net(state)
+        m = Bernoulli(probs)
+        action = m.sample()
 
         ######################################################
         ###               END OF YOUR CODE                 ###
@@ -121,9 +134,11 @@ def main():
     reward_pool = []
     steps = 0
     for e in range(num_episode):
+
         state_pool, action_pool, reward_pool, episode_durations, steps = simulate(
             env, policy_net, steps, state_pool, action_pool, reward_pool,
             episode_durations)
+
         # Update policy
         if e > 0 and e % batch_size == 0:
 
@@ -137,7 +152,13 @@ def main():
                 ### step in the sampled trajectory and store them    #
                 ### in the reward_pool list                          #
                 ######################################################
-        
+
+                if reward_pool[i] == 0:
+                    running_add = 0
+                else:
+                    running_add = running_add * gamma + reward_pool[i]
+                    reward_pool[i] = running_add
+
                 ######################################################
                 ###               END OF YOUR CODE                 ###
                 ######################################################
@@ -165,6 +186,15 @@ def main():
                 ### reward_pool list and perform backward() on the   #
                 ### computed objective for the optimier.step call    #
                 ######################################################
+
+                state = state_pool[i]
+                action = Variable(torch.FloatTensor([action_pool[i]]))
+                reward = reward_pool[i]
+
+                probs = policy_net(state)
+                m = Bernoulli(probs)
+                loss = -m.log_prob(action) * reward
+                loss.backward()
 
                 ######################################################
                 ###               END OF YOUR CODE                 ###

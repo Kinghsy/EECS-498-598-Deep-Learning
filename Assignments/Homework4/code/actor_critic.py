@@ -32,11 +32,20 @@ class Policy(nn.Module):
     def __init__(self):
         super(Policy, self).__init__()
         ##### TODO ######
-        ### Complete definition 
+        ### Complete definition
+        self.fc1 = nn.Linear(4, 128)
+        self.fc2 = nn.Linear(128, 2)
+        self.fc3 = nn.Linear(128, 1)
+
 
     def forward(self, x):
         ##### TODO ######
-        ### Complete definition 
+        ### Complete definition
+        xx = F.relu(self.fc1(x))
+        action_score = self.fc2(xx)
+        state_values = self.fc3(xx)
+        return F.softmax(action_score), state_values
+
 
 model = Policy()
 optimizer = optim.Adam(model.parameters(), lr=3e-2)
