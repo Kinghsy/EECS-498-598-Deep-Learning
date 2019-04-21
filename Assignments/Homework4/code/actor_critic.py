@@ -88,7 +88,22 @@ def compute_losses(episode):
 
     ####### TODO #######
     #### Compute the actor and critic losses
-    actor_loss, critic_loss = None, None
+    #actor_loss, critic_loss = None, None
+
+    r = 0
+    actor_loss = 0
+    critic_loss = 0
+    for i in reversed(range(len(episode))):
+        curState = episode[i][0]
+        curAction = episode[i][1]
+        curReward = episode[i][2]
+
+        r = r*args.gamma + curReward
+        probs, value = model(torch.tensor(curState).type(torch.float32))
+        advantage = r - value
+
+        actor_loss += -torch.log(probs[curAction]) * advantage
+        critic_loss += pow(advantage, 2)
 
     return actor_loss, critic_loss
 
