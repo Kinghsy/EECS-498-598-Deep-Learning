@@ -9,6 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.distributions import Categorical
+import matplotlib.pyplot as plt
 
 
 parser = argparse.ArgumentParser(description='PyTorch actor-critic example')
@@ -18,7 +19,7 @@ parser.add_argument('--seed', type=int, default=543, metavar='N',
                     help='random seed (default: 543)')
 parser.add_argument('--render', action='store_true',
                     help='render the environment')
-parser.add_argument('--log-interval', type=int, default=10, metavar='N',
+parser.add_argument('--log-interval', type=int, default=40, metavar='N',
                     help='interval between training status logs (default: 10)')
 args = parser.parse_args()
 
@@ -50,6 +51,10 @@ class Policy(nn.Module):
 model = Policy()
 optimizer = optim.Adam(model.parameters(), lr=3e-2)
 eps = np.finfo(np.float32).eps.item()
+reward_log = []
+running_reward_log = []
+x_axis_reward = []
+x_axis_running_reward = []
 
 
 def select_action(state):
@@ -125,13 +130,26 @@ def main():
         optimizer.step()
 
         running_reward = 0.05 * episode_reward + (1 - 0.05) * running_reward
+        reward_log.append(episode_reward)
+        x_axis_reward.append(i_episode)
         if i_episode % args.log_interval == 0:
             print('Episode {}\tLast reward: {:.2f}\tAverage reward: {:.2f}'.format(
                   i_episode, episode_reward, running_reward))
+            running_reward_log.append(running_reward)
+            x_axis_running_reward.append(i_episode)
         if running_reward > env.spec.reward_threshold:
             print("Solved! Running reward is now {} and "
                   "the last episode runs to {} time steps!".format(running_reward, len(episode)))
             break
+
+    plt.plot(x_axis_reward, reward_log)
+    plt.plot(x_axis_running_reward, running_reward_log)
+    plt.legend(['Episode reward', 'Running reward'], loc='upper left')
+    plt.title('Trainning')
+    plt.xlabel('Episode')
+    plt.ylabel('Reward')
+    plt.show()
+
 
 
 if __name__ == '__main__':
