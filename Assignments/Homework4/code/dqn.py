@@ -158,8 +158,8 @@ def main():
     BATCH_SIZE = 128
     GAMMA = 0.99
     EPS_START = 0.5
-    EPS_END = 0.02
-    EPS_DECAY = 200
+    EPS_END = 0.015
+    EPS_DECAY = 175
     TARGET_UPDATE = 10
 
     policy_net = DQN().to(device)

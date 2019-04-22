@@ -69,7 +69,7 @@ def simulate(env, policy_net, steps, state_pool, action_pool, reward_pool,
     state = env.reset()
     state = torch.from_numpy(state).float()
     state = Variable(state)
-    env.render(mode='rgb_array')
+    #env.render(mode='rgb_array')
 
     for t in count():
 
@@ -90,7 +90,7 @@ def simulate(env, policy_net, steps, state_pool, action_pool, reward_pool,
 
         action = action.data.numpy().astype(int)[0]
         next_state, reward, done, _ = env.step(action)
-        env.render(mode='rgb_array')
+        #env.render(mode='rgb_array')
 
         # To mark boundarys between episodes
         if done:
@@ -108,7 +108,9 @@ def simulate(env, policy_net, steps, state_pool, action_pool, reward_pool,
 
         if done:
             episode_durations.append(t + 1)
-            plot_durations(episode_durations)
+            if len(episode_durations) % 50 == 0:
+                plot_durations(episode_durations)
+            print("Episode: ", len(episode_durations), "    Duration: ", t+1)
             break
 
     return state_pool, action_pool, reward_pool, episode_durations, steps
