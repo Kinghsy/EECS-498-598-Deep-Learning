@@ -72,5 +72,14 @@ Q.E.D.
 
 
 #### 3. REINFORCE algorithm
+The reward curve is attached below.
+<center> <img src="./code/Q3_result.png" width = "100%" height = "100%" alt="1" align=center/> </center>
 
+As we can oberved, at last, nearly all episode will return a reward near 200, which is a very good performance. 
+
+#### 4. Actor-Critic algorithm
+The reward curve is attached below.
+<center> <img src="./code/Q4_result.png" width = "100%" height = "100%" alt="1" align=center/> </center>
+
+In above figure, the blue curve indicates the (total) reward for every episode, and the yellow curve indicates the running (average) reward.
 
